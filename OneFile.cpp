@@ -32,7 +32,7 @@ namespace IO
 	template <typename T>
 	inline void read(T& value)
 	{
-		if (std::is_integral_v<T>)
+		if constexpr (std::is_integral_v<T>)
 		{
 			int x = 0, f = 1;
 			char ch = getchar();
@@ -70,7 +70,7 @@ namespace IO
 	template <typename T>
 	static inline void print(T value)
 	{
-		if (std::is_integral_v<T>)
+		if constexpr (std::is_integral_v<T>)
 		{
 			if (value < 0) putchar('-'), value = -value;
 			if (value > 9) print(value / 10);
